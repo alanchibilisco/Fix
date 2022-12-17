@@ -26,7 +26,7 @@ const ProductPage = (props) => {
   const getProductos= async()=>{
     try {
       //creamos una constante para poner la info de la base
-      const resp= await instance.get("/productos/")
+      const resp= await instance.get("/products/")
       console.log(resp);
       //si la base tiene info seteamos producto para que traiga la info de la base
       setProductos(resp.data)
