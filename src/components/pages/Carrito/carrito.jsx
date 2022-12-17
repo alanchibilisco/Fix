@@ -23,6 +23,11 @@ const ModalCarrito = ({ show, handleClose }) => {
   console.log(cart);
   localStorage.setItem('cart',JSON.stringify(newArr));
   }
+  let total=0;
+  for (let index = 0; index < cart.length; index++) {
+    total=total + parseFloat(cart[index].PriceProduct)
+  }
+  
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -129,7 +134,7 @@ const ModalCarrito = ({ show, handleClose }) => {
           </tbody>
         </Table>
       </Modal.Body>
-      <h4 className="text-center">Total: $ 4000</h4>
+      <h4 className="text-center">{`$ ${total}`}</h4>
       <Modal.Footer className="text-center">
         <div className="text-center">Ticket Op: {myuuid} </div>
         <Button variant="secondary" onClick={handleClose}>
